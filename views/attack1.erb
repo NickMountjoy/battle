@@ -1,8 +1,8 @@
+<html style="text-align:center; font-family:copperplate; background-image:url(http://www.rapture-art.com/other_forum_pics/PCBRAWL/PCBRAWL_beauty_001.jpg)"></html>
 
-
-<%= @game.player_2.name %> attacked you <br><br>
-you now have <%= @game.player_2.hitpoints %> HP
-<br><br>
+<div>
+  You attacked <%= @game.player_2.name %> <br><br><%= @game.player_2.name %>: <%= @game.player_2.hitpoints %> HP
+</div>
 <form action="/change_player">
     <input type="submit" value="Return to Battle">
 </form>

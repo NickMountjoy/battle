@@ -22,8 +22,16 @@ class Battle < Sinatra::Base
 
   get '/attack1' do
     @game = $game
-    @game.attack(@game.player_2)
-    erb :attack1
+    @game.attack
+      if @game.game_over? == true
+      redirect '/game_over'
+      else
+      erb :attack1
+  end
+end
+
+  get '/game_over' do
+    erb :game_over
   end
 
   get '/change_player' do
@@ -31,6 +39,7 @@ class Battle < Sinatra::Base
     @game.change_player
     redirect '/play'
   end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
